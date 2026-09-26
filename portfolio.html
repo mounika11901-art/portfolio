@@ -1,0 +1,636 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mounika | Personal Portfolio</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: #f8f9fa;
+            color: #222;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff !important;
+        }
+
+        .nav-link {
+            color: #ddd !important;
+            margin-left: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #a78bfa !important;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(135deg, #0f172a, #312e81, #581c87);
+            color: white;
+            padding: 100px 0 60px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: #c4b5fd;
+        }
+
+        .hero p {
+            color: #e2e8f0;
+            font-size: 1.1rem;
+        }
+
+        .profile-img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 7px solid rgba(255,255,255,0.8);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+        }
+
+        .btn-custom {
+            background: #a78bfa;
+            color: #111827;
+            border: none;
+            font-weight: 600;
+            padding: 12px 25px;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background: #c4b5fd;
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-weight: 800;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-line {
+            width: 70px;
+            height: 4px;
+            background: #7c3aed;
+            margin: 0 auto 45px;
+            border-radius: 10px;
+        }
+
+        /* About */
+        .about-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+        }
+
+        /* Education */
+        .education-card {
+            background: white;
+            border: none;
+            border-radius: 18px;
+            padding: 25px;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .education-icon {
+            font-size: 2.2rem;
+            color: #7c3aed;
+        }
+
+        /* Favorites */
+        .favorite-card {
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            background: white;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .favorite-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .favorite-icon {
+            font-size: 2.5rem;
+            color: #7c3aed;
+            margin-bottom: 15px;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: #111827;
+            color: white;
+        }
+
+        .contact-box {
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 35px;
+        }
+
+        /* Footer */
+        footer {
+            background: #080d18;
+            color: #aaa;
+            padding: 25px 0;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero {
+                text-align: center;
+                padding-top: 120px;
+            }
+
+            .hero .row {
+                flex-direction: column-reverse;
+            }
+
+            .profile-img {
+                width: 210px;
+                height: 210px;
+                margin-bottom: 35px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .navbar .nav-link {
+                margin-left: 0;
+                padding: 10px 0;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="#home">
+            Mounika.
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#education">Education</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#favorites">Favorites</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-7">
+
+                <p class="mb-2">Hello, I'm</p>
+
+                <h1>
+                    Mounika <span>👋</span>
+                </h1>
+
+                <p class="lead mt-3">
+                    B.Tech Student | Creative Learner | Future Professional
+                </p>
+
+                <p>
+                    Welcome to my personal portfolio. Explore my education,
+                    interests and a little bit about me.
+                </p>
+
+                <div class="mt-4">
+
+                    <a href="#about" class="btn btn-custom me-2">
+                        Explore Portfolio
+                    </a>
+
+                    <a href="#contact"
+                       class="btn btn-outline-light rounded-pill px-4 py-2">
+                        Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-5 text-center">
+
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3oZsuTQg9oVy3fOqrhvSUix19lSiInNHU86nyYwwQdU1BP0Y7-XEJ7-Q&s"
+                    alt="Mounika Profile"
+                    class="profile-img"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <h2 class="section-title">About Me</h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-9">
+
+                <div class="about-card text-center">
+
+                    <h3 class="fw-bold mb-3">
+                        Hi, I'm Mounika!
+                    </h3>
+
+                    <p class="text-muted mb-0">
+                        I am a B.Tech student with a passion for learning,
+                        creativity and technology. I enjoy exploring new
+                        ideas, improving my skills and building meaningful
+                        experiences. This portfolio represents my academic
+                        journey, interests and personality.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= EDUCATION ================= -->
+
+<section id="education" class="bg-light">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <h2 class="section-title">My Education</h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Intermediate -->
+            <div class="col-12 col-md-4">
+
+                <div class="education-card text-center">
+
+                    <i class="bi bi-book education-icon"></i>
+
+                    <h4 class="mt-3 fw-bold">
+                        Intermediate
+                    </h4>
+
+                    <p class="text-muted">
+                        Aditya College
+                    </p>
+
+                    <span class="badge bg-dark">
+                        Intermediate
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- School -->
+            <div class="col-12 col-md-4">
+
+                <div class="education-card text-center">
+
+                    <i class="bi bi-mortarboard education-icon"></i>
+
+                    <h4 class="mt-3 fw-bold">
+                        School
+                    </h4>
+
+                    <p class="text-muted">
+                        Sri Vikas
+                    </p>
+
+                    <span class="badge bg-dark">
+                        School Education
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- BTech -->
+            <div class="col-12 col-md-4">
+
+                <div class="education-card text-center">
+
+                    <i class="bi bi-laptop education-icon"></i>
+
+                    <h4 class="mt-3 fw-bold">
+                        B.Tech
+                    </h4>
+
+                    <p class="text-muted">
+                        Sir C R Reddy College of Engineering
+                    </p>
+
+                    <span class="badge bg-dark">
+                        Engineering
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FAVORITES ================= -->
+
+<section id="favorites">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <h2 class="section-title">
+                My Favorites
+            </h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Heroine -->
+            <div class="col-12 col-md-4">
+
+                <div class="favorite-card text-center">
+
+                    <i class="bi bi-star-fill favorite-icon"></i>
+
+                    <h4 class="fw-bold">
+                        Favourite Heroine
+                    </h4>
+
+                    <p class="text-muted">
+                        Sai Pallavi
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hero -->
+            <div class="col-12 col-md-4">
+
+                <div class="favorite-card text-center">
+
+                    <i class="bi bi-heart-fill favorite-icon"></i>
+
+                    <h4 class="fw-bold">
+                        Favourite Hero
+                    </h4>
+
+                    <p class="text-muted">
+                        Ram
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Movie -->
+            <div class="col-12 col-md-4">
+
+                <div class="favorite-card text-center">
+
+                    <i class="bi bi-film favorite-icon"></i>
+
+                    <h4 class="fw-bold">
+                        Favourite Movie
+                    </h4>
+
+                    <p class="text-muted">
+                        Uyyala Jampala
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact-section">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <h2 class="section-title">
+                Let's Connect
+            </h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="contact-box text-center">
+
+                    <h3 class="fw-bold">
+                        Thank You for Visiting!
+                    </h3>
+
+                    <p class="mt-3 text-light">
+                        Thank you for taking the time to explore my portfolio.
+                        I'm always interested in learning, creating and
+                        discovering new opportunities.
+                    </p>
+
+                    <a href="#home" class="btn btn-custom mt-3">
+                        Back to Top ↑
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container text-center">
+
+        <p class="mb-1">
+            © 2026 Mounika. All Rights Reserved.
+        </p>
+
+        <small>
+            Designed with Bootstrap ❤️
+        </small>
+
+    </div>
+
+</footer>
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>
+```
